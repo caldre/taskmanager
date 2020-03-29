@@ -1,38 +1,127 @@
-.App {
+* {
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-decoration: none;
+  list-style: none;
+}
+body {
+  background-color: #eee;
+}
+
+.root-container {
+  background-color: white;
+  height: 100vh;
+  display: grid;
+  grid-template-areas:
+    "a a"
+    "b b"
+    "c d";
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 5fr 1fr 30fr;
+  min-width: 300px;
+  max-width: 600px;
+}
+
+.header {
+  grid-area: a;
+  width: 100%;
   text-align: center;
+  background-color: aqua;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.navbar-container {
+  grid-area: b;
+  width: 100%;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.navbar {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.menu-button {
+  background-color: darkblue;
+  height: 3em;
+}
+
+.menu-button a {
+  width: 100%;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.menu-button:hover {
+  background-color: blue;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.item-container {
+  grid-area: d;
+  background-color: bisque;
+}
+
+.item-row {
+  display: flex;
+  flex-direction: row;
+}
+
+.input-container {
+  grid-area: c;
+  background-color: blanchedalmond;
+}
+
+.calendar {
+  bottom: 10vh;
+  border-radius: 0em;
+
+  width: 100%;
+}
+
+.task-board {
+  grid-area: c / span 2;
+  width: 100%;
+}
+
+.task-row-container:nth-child(odd) {
+  background-color: rgb(92, 82, 43);
+}
+
+.task-row {
+  display: grid;
+  grid-template-areas:
+    "tr-a tr-b"
+    "tr-c tr-c";
+  grid-template-columns: repeat(6, 1fr);
+}
+
+.task-row .task {
+  grid-area: tr-a;
+}
+
+.task-row .worker {
+  grid-area: tr-b;
+}
+
+.task-row .workers {
+  grid-area: tr-c;
+}
+
+.button {
+  transition: 0.15s;
+  width: 100%;
+  height: 3.5vh;
+  margin-bottom: 10px;
+  border-radius: 20px;
+  background-color: lightgreen;
+  border: none;
+  box-shadow: 1px 1px 2px rgb(128, 128, 128);
+}
+
+.button:hover {
+  transition: 0.15s;
+  background-color: rgb(190, 255, 190);
 }

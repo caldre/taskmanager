@@ -1,26 +1,24 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import Header from "./components/Header";
+import PersonnelView from "./layout/PersonnelView";
+import TaskView from "./layout/TaskView";
+import Navbar from "./components/Navbar";
+import TaskBoard from "./components/TaskBoard";
+import "./App.css";
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div className="root-container">
+        <Header />
+        <Navbar />
+        <Route exact path="/" component={TaskBoard} />
+        <Route exact path="/personnel" component={PersonnelView} />
+        <Route exact path="/tasks" component={TaskView} />
+      </div>
+    </Router>
   );
-}
+};
 
 export default App;
