@@ -49,8 +49,23 @@ const dateDetailsReducer = (dateDetailsList = [], action) => {
   }
 };
 
+const currentDayReducer = (currentTaskList = {}, action) => {
+  switch (action.type) {
+    case "INITIALIZE_DATE":
+      console.log(`REDUCER: ${action.type}`);
+      return Object.assign(currentTaskList, action.payload.completedTasks);
+    case "MODIFY_CURRENT_DATE":
+      console.log(`REDUCER ${action.type}`);
+      return Object.assign(currentTaskList, action.payload);
+    default:
+      console.log("default trigg");
+      return currentTaskList;
+  }
+};
+
 export default combineReducers({
   personReducer,
   taskReducer,
-  dateDetailsReducer
+  dateDetailsReducer,
+  currentDayReducer
 });
